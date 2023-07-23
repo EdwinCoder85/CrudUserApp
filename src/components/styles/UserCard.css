@@ -1,0 +1,77 @@
+.user {
+    border: 2px solid var(--color-border-card);
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    transition: transform 200ms ease;
+    padding: .8rem;
+    margin: 0 auto;
+  }
+  
+  .user:hover {
+    transform: scale(1.05);
+    border: 2px solid var(--color-hover);
+  }
+  
+  .user__title {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: .5rem auto;
+  }
+  
+  .user__line {
+    margin-top: 0.5px;
+    margin-bottom: .5em;
+    border-color: var(--color-border-card);
+  }
+  
+  .user__list {
+    display: grid;
+    gap: 0.8em;
+  }
+  
+  .user__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+  
+  .user__label {
+    color: var(--color-label);
+    font-size: 1rem;
+  }
+  
+  .user__item-value {
+    font-size: .8rem;
+  }
+  
+  .user__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .user__footer-btn {
+    font-size: 20px;
+    margin-left: .5rem;
+    border-radius: .2rem;
+    padding: .3rem .5rem;
+  }
+  
+  .btn_red {
+    background-color: #D93F3F;
+    color: #fffcfc;
+    border: 1px solid #e23232;
+  }
+  
+  .btn_gray {
+    background-color: #fcfcfc;
+    color: #c5c3c3;
+    border: 1px solid #c5c3c3;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .user {
+      margin: 0;
+    }
+  }

@@ -1,5 +1,5 @@
 .principal-container {
-  margin: 2.5rem 2rem;
+  margin: var(--sp-2) var(--sp-1-5);
 }
 
 .principal__header {
@@ -7,44 +7,53 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1em;
-  margin-bottom: 3em;
+  gap: var(--sp-1);
+  margin-bottom: var(--sp-3);
 }
 
 .principal__title {
-  text-align: center;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
 }
 
 .principal__btn {
-  font-size: .8rem;
-  font-weight: 400;
-  padding-top: .6rem;
-  padding-bottom: .6rem;
-  background-color: #555A88;
-  color: white;
-  padding-left: 1rem;
-  padding-right: .5rem;
+  font-size: var(--size-small);
+  font-weight: var(--weight-regular);
+  background-color: var(--bg-buttonDefault);
+  color: var(--text-buttonDefault);
+  padding: var(--sp-0-75);
 }
 
 .user__container {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+  gap: var(--sp-1);
 }
 
 @media screen and (min-width: 1200px) {
-  .user__container {
-    margin: 0 auto;
-    display: flex;
-    gap: 10px 40px;
-    width: 1200px;
+
+  .principal-container {
+    margin: var(--sp-2-5) var(--sp-2);
   }
 
   .principal__header {
     margin: 0 auto;
-    margin-bottom: 3em;
+    margin-bottom: var(--sp-3);
+    width: 1200px;
+  }
+
+  .principal__title {
+    font-weight: var(--weight-bold);
+  }
+
+  .principal__btn {
+    padding: var(--sp-0-75) var(--sp-1) var(--sp-0-75) var(--sp-2);
+  }
+
+  .user__container {
+    margin: 0 auto;
+    display: flex;
+    gap: var(--sp-0-75) var(--sp-2-5);
     width: 1200px;
   }
 

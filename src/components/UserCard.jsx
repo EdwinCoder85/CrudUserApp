@@ -1,6 +1,6 @@
 import { useState } from "react";
-import WarningDelete from './WarningDelete';
 import './styles/UserCard.css';
+import WarningUser from "./WarningUser";
 
 const   UserCard = ({ 
   user, 
@@ -10,14 +10,16 @@ const   UserCard = ({
 }) => {
 
   const [closeWarning, setCloseWarning] = useState(true)
+  const [flag, setFlag] = useState()
 
   const handleOpenWarning = () => {
     setCloseWarning(false)
   }
 
   const handleDelete = (e) => {
-      e.preventDefault()
-      deleteUserById('/users', user.id)
+    e.preventDefault()
+    deleteUserById('/users', user.id)
+    setFlag('D')
   }
 
   const handleUpdate = (e) => {
@@ -55,11 +57,12 @@ const   UserCard = ({
           </button>
         </footer>
       </article>
-      <WarningDelete
+      <WarningUser
         user={user}
         handleDelete={handleDelete}
         closeWarning={closeWarning}
         handleCloseWarning={handleCloseWarning}
+        flag={flag}
       />
     </>
   );

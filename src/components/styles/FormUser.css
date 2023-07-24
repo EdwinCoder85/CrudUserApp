@@ -1,14 +1,14 @@
 .formuser-container {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--color-overlay);
+    background-color: var(--bg-overlayDefault);
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: var(--z-fixed);
     transition: transform 200ms ease;
   }
   
@@ -19,39 +19,38 @@
   .formuser {
     width: 100%;
     max-width: 300px;
-    padding: 1.5em 1.5em 2.5em;
-    background-color: white;
+    padding: var(--sp-1-5) var(--sp-1-5) var(--sp-2-5);
+    background-color: var(--bg-formUser);
     position: relative;
   }
   
   .formuser__title {
-    margin-bottom: 0.5em;
-    font-weight: 600;
+    margin-bottom: var(--sp-0-5);
+    font-weight: var(--weight-bold);
   }
   
   .formuser__label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    
+    font-size: var(--size-small);
+    font-weight: var(--weight-medium);
   }
   
   .formuser__input {
-    font-size: 0.8rem;
-    border-radius: 0.5em;
-    border: 0.1em solid var(--color-border-form);
-    background-color: var(--color-input);
-    padding: 0.8em 1em;
+    font-size: var(--size-small);
+    border-radius: var(--sp-0-5);
+    border: var(--sp-0-1) solid var(--border-formUser);
+    background-color: var(--text-inputForm);
+    padding: var(--sp-0-75) var(--sp-1);
   }
   
   .formuser__btn {
     width: 100%;
-    font-size: 0.8rem;
-    font-weight: 400;
-    padding-top: 0.6em;
-    padding-bottom: 0.6em;
-    background-color: var(--color-button);
-    color: white;
-    margin-top: 1em;
+    font-size: var(--size-small);
+    font-weight: var(--weight-regular);
+    padding-top: var(--sp-0-75);
+    padding-bottom: var(--sp-0-75);
+    background-color: var(--bg-buttonDefault);
+    color: var(--text-buttonDefault);
+    margin-top: var(--sp-1);
   }
   
   .formuser__btn:hover {
@@ -60,25 +59,25 @@
   
   .formuser__close {
     position: absolute;
-    font-size: 1.2rem;
-    top: 1em;
-    right: 1.5em;
+    font-size: var(--size-medium);
+    top: var(--sp-1);
+    right: var(--sp-1-5);
     cursor: pointer;
   }
   
   .formuser__close:hover {
-    color: var(--color-hover);
+    color: var(--color-hoverDefault);
   }
   
   .formuser__group {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
-    margin-bottom: 0.8em;
+    gap: var(--sp-0-5);
+    margin-bottom: var(--sp-0-75);
   }
   
   .formuser__text-danger {
-    font-size: .6rem;
-    color: var(--color-error);
-    font-weight: 500;
+    font-size: var(--size-tiny);
+    color: var(--text-messageError);
+    font-weight: var(--weight-medium);
   }

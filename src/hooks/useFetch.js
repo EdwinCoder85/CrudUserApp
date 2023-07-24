@@ -4,13 +4,20 @@ import { useState } from "react";
 const useFetch = (baseURL, setCloseForm) => {
 
   const [infoApi, setInfoApi] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   // GET
   const getApi = (path) => {
+    setIsLoading(true)
     const url = `${baseURL}${path}/`
     axios.get(url)
     .then(res => setInfoApi(res.data))
     .catch(err => console.log(err))
+    .finally(() =>
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 200)
+    )
   }
 
   // POST
@@ -51,7 +58,7 @@ const useFetch = (baseURL, setCloseForm) => {
     .catch(err => console.log(err))
   }
 
-  return [ infoApi, getApi, postApi, deleteApi, updateApi ]
+  return [ infoApi, getApi, postApi, deleteApi, updateApi, isLoading ]
 }
 
 export default useFetch;

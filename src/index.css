@@ -1,14 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root {
-  --color-button: #555A88;
-  --color-input: #F9FAFC;
-  --color-label: #c3bfbf;
-  --color-error: #9c0c0c;
-  --color-hover: #ff0000;
-  --color-overlay: #00000033;
-  --color-border-form: #aaa;
-  --color-border-card:#aaa3;
+  /* pseudo class */
+  
+  /* General Colors */
+  --bg-buttonDefault: #555a88;
+  --text-buttonDefault: #ffffff;
+  --bg-overlayDefault: #00000033;
+  --color-hoverDefault: #ff0000;
+  --bg-lds-spinner: #ffffff;
+
+  /* FormUser Colors */
+  --bg-formUser: #ffffff;
+  --border-formUser: #aaaaaa;
+  --text-messageError: #9c0c0c;
+  --text-inputForm: #f9fafc;
+  --text-labelForm: #c3bfbf;
+
+  /* UserCard Colors */
+  --border-userCard: #aaaaaa33;
+  --bg-btnDelete: #d93f3f;
+  --text-btnDelete: #fffcfc;
+  --border-btnDelete: #e23232;
+  --bg-btnUpdate: #fcfcfc;
+  --text-btnUpdate: #c5c3c3;
+  --border-btnUpdate: #c5c3c3;
+  
+  /* UserCard Colors */
+  --bg-warningUser: #ffffff;
+
+  /* Font size and typography */
+  --body-font: 'Roboto', sans-serif;
+  --size-extra-big: 4rem;
+  --size-big: 2.5rem;
+  --size-large: 2rem;
+  --size-medium: 1.2rem;
+  --size-normal: 1rem;
+  --size-small: 0.75rem;
+  --size-tiny: 0.6rem;
+  
+  /* Font weight */
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-black: 900;
+  
+  /* Margins, Paddings and Borders */
+  --sp-0-05: 0.05em;
+  --sp-0-1: 0.1em;
+  --sp-0-125: 0.125em;
+  --sp-0-15: 0.15em;
+  --sp-0-2: 0.2em;
+  --sp-0-25: 0.25em;
+  --sp-0-5: 0.5em;
+  --sp-0-75: 0.75em;
+  --sp-1: 1em;
+  --sp-1-25: 1.25em;
+  --sp-1-5: 1.5em;
+  --sp-1-75: 1.75em;
+  --sp-2: 2em;
+  --sp-2-5: 2.5em;
+  --sp-3: 3em;
+  --sp-4: 4em;
+  --sp-5: 5em;
+  
+  /* z-index */
+  --z-fixed: 1;
+  --z-modal: 2;
+  --z-loader: 100;
+
 }
 
 * {
@@ -17,7 +79,7 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
 }
 
 h1, h2, h3, ul, hr {

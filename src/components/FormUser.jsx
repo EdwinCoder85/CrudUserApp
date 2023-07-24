@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import "./styles/FormUser.css";
-import WarningCreateUpdate from "./WarningCreateUpdate";
+import WarningUser from "./WarningUser";
 
 const FormUser = ({
   createNewUser,
@@ -14,31 +14,31 @@ const FormUser = ({
 
   const { register, reset, formState: { errors }, handleSubmit } = useForm();
 
-  const [openWarning, setOpenWarning] = useState(false)
-  const [user, setUser] = useState(null)
-
+  const [closeWarning, setCloseWarning] = useState(true)
+  const [user, setUser] = useState()
+  const [flag, setFlag] = useState()
 
   useEffect(() => {
       reset(updateInfo);
   }, [updateInfo]);
 
   const submit = data => {
-
     if (updateInfo) {
       //Update
       updateUserById("/users", updateInfo.id, data);
       handleOpenWarning(data)
+      setFlag('U')
     } else {
       //Create
       createNewUser("/users", data);
       handleOpenWarning(data)
+      setFlag('N')
     }
-
   };
 
   const handleCloseForm = () => {
     setCloseForm(true)
-    setUpdateInfo(null)
+    setUpdateInfo()
     reset({
       first_name: "",
       last_name: "",
@@ -50,18 +50,20 @@ const FormUser = ({
 
   const handleCreateUpdate = (e) => {
     e.preventDefault()
-    setOpenWarning(false)
+    setCloseWarning(true)
     setCloseForm(true)
-    setUpdateInfo(null)
+    setUpdateInfo()
   }
 
   const handleCloseWarning = () => {
-    setOpenWarning(false)
+    setCloseWarning(true)
+    setCloseForm(true)
+    setUpdateInfo()
   }
 
   const handleOpenWarning = (data) => {
     setUser(data)
-    setOpenWarning(true)
+    setCloseWarning(false)
     reset({
       first_name: "",
       last_name: "",
@@ -90,10 +92,10 @@ const FormUser = ({
               id="first_name"
               placeholder="Ingrese nombres"
             />
-            <error className="formuser__text-danger">
+            <small className="formuser__text-danger">
               {errors.first_name?.type === "required" && "* Nombres son requeridos"}
               {errors.first_name?.type === "maxLength" && "* Nombre ingresado tiene más de 20 caracteres"}
-            </error>
+            </small>
           </div>
           <div className="formuser__group">
             <label className="formuser__label" htmlFor="last_name">
@@ -106,9 +108,9 @@ const FormUser = ({
               id="last_name"
               placeholder="Ingrese apellidos"
             />
-            <error className="formuser__text-danger">
+            <small className="formuser__text-danger">
               {errors.last_name?.type === "required" && "* Apellidos son requeridos"}
-            </error>
+            </small>
           </div>
           <div className="formuser__group">
             <label className="formuser__label" htmlFor="email">
@@ -121,10 +123,10 @@ const FormUser = ({
               id="email"
               placeholder="Ingrese correo electrónico"
             />
-            <error className="formuser__text-danger">
+            <small className="formuser__text-danger">
               {errors.email?.type === "required" && "* Correo Electrónico es requerido"}
               {errors.email?.type === "pattern" && "* Correo Electrónico ingresado tiene un formato incorrecto"}
-            </error>
+            </small>
           </div>
           <div className="formuser__group">
             <label className="formuser__label" htmlFor="password">
@@ -136,12 +138,13 @@ const FormUser = ({
               type="password"
               id="password"
               placeholder="Ingrese contraseña"
+              autoComplete="true"
             />
-            <error className="formuser__text-danger">
+            <small className="formuser__text-danger">
               {errors.password?.type === "required" && "* Contraseña es requerida"}
               {errors.password?.type === "minLength" && "* Contraseña ingresada tiene menos de 8 caracteres"}
               {errors.password?.type === "maxLength" && "* Contraseña ingresada tiene más de 20 caracteres"}
-            </error>
+            </small>
           </div>
           <div className="formuser__group">
             <label className="formuser__label" htmlFor="birthday">
@@ -154,22 +157,22 @@ const FormUser = ({
               id="birthday"
               placeholder="DD/MM/YYYY"
             />
-            <error className="formuser__text-danger">
+            <small className="formuser__text-danger">
               {errors.birthday?.type === "required" && "* Fecha de Cumpleaños es requerida"}
-            </error>
+            </small>
           </div>
           <button /*onClick={handleOpenWarning} */ className="formuser__btn">
             {updateInfo ? "Guardar cambios" : "Agregar nuevo usuario"}
           </button>
         </form>
       </div>
-      {openWarning && <WarningCreateUpdate
-        updateInfo={updateInfo}
+      <WarningUser
         user={user}
         handleCreateUpdate={handleCreateUpdate}
-        closeWarning={closeForm}
+        closeWarning={closeWarning}
         handleCloseWarning={handleCloseWarning}
-      />}
+        flag={flag}
+      />
     </>
   );
 };

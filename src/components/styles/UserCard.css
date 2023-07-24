@@ -1,48 +1,47 @@
-.user {
-    border: 2px solid var(--color-border-card);
+  .user {
+    border: var(--sp-0-125) solid var(--border-userCard);
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     overflow: hidden;
     transition: transform 200ms ease;
-    padding: .8rem;
+    padding: var(--sp-0-75);
     margin: 0 auto;
   }
   
   .user:hover {
     transform: scale(1.05);
-    border: 2px solid var(--color-hover);
+    border: var(--sp-0-125) solid var(--color-hoverDefault);
   }
   
   .user__title {
-    font-size: 1.2rem;
+    font-size: var(--size-normal);
     text-align: center;
-    margin: .5rem auto;
+    margin: var(--sp-0-5) auto;
   }
   
   .user__line {
-    margin-top: 0.5px;
-    margin-bottom: .5em;
-    border-color: var(--color-border-card);
+    margin: var(--sp-0-5) auto;
+    border-color: var(--border-userCard);
   }
   
   .user__list {
     display: grid;
-    gap: 0.8em;
+    gap: var(--sp-0-75);
   }
   
   .user__item {
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: var(--sp-0-2);
   }
   
   .user__label {
-    color: var(--color-label);
-    font-size: 1rem;
+    color: var(--text-labelForm);
+    font-size: var(--size-small);
   }
   
   .user__item-value {
-    font-size: .8rem;
+    font-size: var(--size-small);
   }
   
   .user__footer {
@@ -52,26 +51,40 @@
   }
   
   .user__footer-btn {
-    font-size: 20px;
-    margin-left: .5rem;
-    border-radius: .2rem;
-    padding: .3rem .5rem;
+    font-size: var(--size-medium);
+    margin-left: var(--sp-0-5);
+    border-radius: var(--sp-0-2);
+    padding: var(--sp-0-25) var(--sp-0-5);
   }
   
   .btn_red {
-    background-color: #D93F3F;
-    color: #fffcfc;
-    border: 1px solid #e23232;
+    background-color: var(--bg-btnDelete);
+    color: var(--text-btnDelete);
+    border: var(--sp-0-05) solid var(--border-btnDelete);
   }
   
   .btn_gray {
-    background-color: #fcfcfc;
-    color: #c5c3c3;
-    border: 1px solid #c5c3c3;
+    background-color: var(--bg-btnUpdate);
+    color: var(--text-btnUpdate);
+    border: var(--sp-0-05) solid var(--border-btnUpdate);
   }
   
   @media screen and (min-width: 1200px) {
     .user {
+      width: 100%;
+      max-width: 350px;
       margin: 0;
+    }
+
+    .user__title {
+      font-size: var(--size-medium);
+    }
+
+    .user__line {
+      margin: var(--sp-0-75) auto;
+    }
+
+    .user__label, .user__item-value  {
+      font-size: var(--size-normal);
     }
   }

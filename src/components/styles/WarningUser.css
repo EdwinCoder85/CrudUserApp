@@ -1,7 +1,7 @@
-.warninguser-container {
+  .warninguser-container {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--color-overlay);
+    background-color: var(--bg-overlayDefault);
     position: fixed;
     top: 0;
     left: 0;
@@ -19,42 +19,42 @@
   .warninguser {
     width: 100%;
     max-width: 300px;
-    padding: 1.5em 1.5em 2.5em;
-    background-color: white;
+    padding: var(--sp-1-5) var(--sp-1-5) var(--sp-2-5);
+    background-color: var(--bg-warningUser);
     position: relative;
   }
   
   .warninguser__close {
     position: absolute;
-    font-size: 1.2rem;
-    top: 1em;
-    right: 1.5em;
+    font-size: var(--size-medium);
+    top: var(--sp-1);
+    right: var(--sp-1-5);
     cursor: pointer;
   }
   
   .warninguser__close:hover {
-    color: var(--color-hover);
+    color: var(--color-hoverDefault);
   }
   
   .warninguser__title {
-    margin-bottom: 0.5em;
-    font-weight: 600;
+    margin-bottom: var(--sp-0-5);
+    font-weight: var(--weight-medium);
   }
   
   .warninguser__message {
-    font-size: .8rem;
-    margin: 1rem auto;
+    font-size: var(--size-small);
+    margin: var(--sp-1) auto;
     display: block;
   }
   
   .warninguser__btn {
     width: 100%;
-    font-size: 1rem;
-    font-weight: 400;
-    padding-top: 0.6em;
-    padding-bottom: 0.6em;
-    background-color: var(--color-button);
-    color: white;
-    margin-top: 1em;
+    font-size: var(--size-normal);
+    font-weight: var(--weight-regular);
+    padding-top: var(--sp-0-75);
+    padding-bottom: var(--sp-0-75);
+    background-color: var(--bg-buttonDefault);
+    color: var(--text-buttonDefault);
+    margin-top: var(--sp-1);
   }
   
